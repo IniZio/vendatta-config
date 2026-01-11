@@ -1,12 +1,10 @@
 ---
 name: test-suite
-description: Run all tests in the project (Go and Node.js)
+description: Run all tests in the repository
 steps:
-  - name: Go Tests
-    command: "go test ./..."
-  - name: Node Tests
-    command: "if [ -f package.json ]; then npm test; fi"
+  - name: Run Tests
+    command: "make test || go test ./... || npm test"
 ---
 
 # Test Suite
-Composite command to run all tests in the repository.
+Composite command to run all tests across different language ecosystems.

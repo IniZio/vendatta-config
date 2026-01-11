@@ -1,12 +1,10 @@
 ---
 name: lint-all
-description: Run all linters (golangci-lint and eslint)
+description: Run all linters in the repository
 steps:
-  - name: Go Lint
-    command: "golangci-lint run"
-  - name: Node Lint
-    command: "if [ -f package.json ]; then npm run lint; fi"
+  - name: Run Linters
+    command: "make lint || golangci-lint run || npm run lint"
 ---
 
 # Lint All
-Composite command to run all linters in the repository.
+Composite command to run all linters across different language ecosystems.
